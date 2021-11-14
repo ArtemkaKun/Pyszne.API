@@ -10,5 +10,10 @@ namespace Pyszne_API.APISystem
 		{
 			RestaurantsManager = new Restaurants(SERVICE_ADDRESS);
 		}
+
+		public void GetMenu (string restaurantName)
+		{
+			RestaurantsManager.GetMenu(restaurantName);
+		}
 	}
 }
