@@ -18,7 +18,7 @@ This project is based on the XHR data that can be found in the Development mode 
 
 # How to use?
 
-If you want to embed a code of this project in your project - just build a DLL of a library part of this solution (API project) or copy-paste all code that related to the API project in this solution. The library part provides only wrappers for HTTP requests and returns raw JSON responses from the [Pyszne.pl](https://www.pyszne.pl/) server. All fancy stuff is in the microservice part.
+If you want to embed a code of this project in your project - just build a DLL of a library part of this solution (Pyszne-API-lib project) or copy-paste all code that related to the Pyszne-API-lib project in this solution. The library part provides only wrappers for HTTP requests and returns raw JSON responses from the [Pyszne.pl](https://www.pyszne.pl/) server. All fancy stuff is in the microservice part.
 
 ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) `//TODO make wiki page with API solution doc`
 
