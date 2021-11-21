@@ -26,6 +26,10 @@ If you want to use this project as a microservice - build the whole solution (th
 
 ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) `//TODO make wiki page how to set up and configure ASP server and a doc for code`
 
+# How to create new requests? How to get a HTTP request from a web browser to the Pyszne.pl server?
+
+[Please, this that page of a wiki](https://github.com/ArtemkaKun/Pyszne.API/wiki/How-to-get-a-HTTP-request-from-a-web-browser-to-the-Pyszne.pl-server%3F)
+
 # Disclaimer
 
 Author of the Pyszne.API project - Artem Yurchenko.
