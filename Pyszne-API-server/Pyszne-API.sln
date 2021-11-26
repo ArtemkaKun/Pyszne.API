@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pyszne-API-server", "Pyszne-API-server.csproj", "{EF13E00D-F0C9-4CD9-BCFD-D448FDDD95CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pyszne-API-lib", "..\Pyszne-API-lib\Pyszne-API-lib.csproj", "{5F1E5C89-D4EE-4A80-89C6-C8AC61BA2495}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PyszneAPILib", "..\PyszneAPILib\PyszneAPILib.csproj", "{5F1E5C89-D4EE-4A80-89C6-C8AC61BA2495}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PyszneAPILibTests", "..\PyszneAPILibTests\PyszneAPILibTests.csproj", "{DF8E7F41-BDC6-46C4-ADDA-B13724BA31EE}"
 EndProject
