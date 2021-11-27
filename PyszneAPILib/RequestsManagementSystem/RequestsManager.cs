@@ -18,14 +18,14 @@ namespace PyszneAPILib.RequestsManagementSystem
 			InitializeRequestsClient();
 		}
 
-		public async Task<HttpResponseMessage> SendRequest (HttpRequestMessage requestToSend)
-		{
-			return await RequestsClient.SendAsync(requestToSend);
-		}
-
 		public async Task<string> ReadResponse (HttpResponseMessage responseToRead)
 		{
 			return await responseToRead.Content.ReadAsStringAsync();
+		}
+
+		public async Task<HttpResponseMessage> SendRequest (HttpRequestMessage requestToSend)
+		{
+			return await RequestsClient.SendAsync(requestToSend);
 		}
 
 		private void InitializeDefaultHeadersMap ()
