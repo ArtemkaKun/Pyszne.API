@@ -8,7 +8,7 @@ namespace PyszneAPILibServer
 {
 	public class RestaurantTests
 	{
-		private API APIInstance { get; set; }
+		private API APIInstance { get; set; } = null!; //null suppression was added to remove compiler warning for constructor. Property always initialized in initialization method. 27.11.2021. Artem Yurchenko
 
 		[OneTimeSetUp]
 		public void Initialize ()
