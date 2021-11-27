@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -7,9 +8,13 @@ namespace PyszneAPILib.RequestsManagementSystem
 	public class RequestsManager : IRequestsManager
 	{
 		private HttpClient RequestsClient { get; set; } = null!; //null suppression was added to remove compiler warning for constructor. Property always initialized in initialization method. 27.11.2021. Artem Yurchenko
+		private Dictionary<string, string> DefaultHeadersMap { get; set; } = null!; //null suppression was added to remove compiler warning for constructor. Property always initialized in initialization method. 27.11.2021. Artem Yurchenko
+
+		private const int DEFAULT_REQUEST_TIMEOUT_IN_MINUTES = 1;
 
 		public RequestsManager ()
 		{
+			InitializeDefaultHeadersMap();
 			InitializeRequestsClient();
 		}
 
@@ -22,29 +27,40 @@ namespace PyszneAPILib.RequestsManagementSystem
 		{
 			return await responseToRead.Content.ReadAsStringAsync();
 		}
+
+		private void InitializeDefaultHeadersMap ()
+		{
+			DefaultHeadersMap = new Dictionary<string, string>
+			{
+				{"authority", "cw-api.takeaway.com"},
+				{"x-instana-t", "a72df02c74bb0d7b"},
+				{"x-instana-s", "a72df02c74bb0d7b"},
+				{"accept-language", "pl"},
+				{"sec-ch-ua-mobile", "?0"},
+				{"x-instana-l", "1,correlationType=web;correlationId=a72df02c74bb0d7b"},
+				{"accept", "application/json, text/plain, */*"},
+				{"x-requested-with", "XMLHttpRequest"},
+				{"x-session-id", "b30d529c-4c4f-4a1c-bf36-c15a7eac9151"},
+				{"user-agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36"},
+				{"x-country-code", "pl"},
+				{"sec-ch-ua", "\"Google Chrome\";v=\"95\", \"Chromium\";v=\"95\", \";Not A Brand\";v=\"99\""},
+				{"sec-ch-ua-platform", "\"Linux\""},
+				{"origin", "https://www.pyszne.pl"},
+				{"sec-fetch-site", "cross-site"},
+				{"sec-fetch-mode", "cors"},
+				{"sec-fetch-dest", "empty"},
+			};
 		}
 
 		private void InitializeRequestsClient ()
 		{
 			RequestsClient = new HttpClient();
-			RequestsClient.Timeout = TimeSpan.FromMinutes(1);
-			RequestsClient.DefaultRequestHeaders.Add("authority", "cw-api.takeaway.com");
-			RequestsClient.DefaultRequestHeaders.Add("x-instana-t", "a72df02c74bb0d7b");
-			RequestsClient.DefaultRequestHeaders.Add("x-instana-s", "a72df02c74bb0d7b");
-			RequestsClient.DefaultRequestHeaders.Add("accept-language", "pl");
-			RequestsClient.DefaultRequestHeaders.Add("sec-ch-ua-mobile", "?0");
-			RequestsClient.DefaultRequestHeaders.Add("x-instana-l", "1,correlationType=web;correlationId=a72df02c74bb0d7b");
-			RequestsClient.DefaultRequestHeaders.Add("accept", "application/json, text/plain, */*");
-			RequestsClient.DefaultRequestHeaders.Add("x-requested-with", "XMLHttpRequest");
-			RequestsClient.DefaultRequestHeaders.Add("x-session-id", "b30d529c-4c4f-4a1c-bf36-c15a7eac9151");
-			RequestsClient.DefaultRequestHeaders.Add("user-agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36");
-			RequestsClient.DefaultRequestHeaders.Add("x-country-code", "pl");
-			RequestsClient.DefaultRequestHeaders.Add("sec-ch-ua", "\"Google Chrome\";v=\"95\", \"Chromium\";v=\"95\", \";Not A Brand\";v=\"99\"");
-			RequestsClient.DefaultRequestHeaders.Add("sec-ch-ua-platform", "\"Linux\"");
-			RequestsClient.DefaultRequestHeaders.Add("origin", "https://www.pyszne.pl");
-			RequestsClient.DefaultRequestHeaders.Add("sec-fetch-site", "cross-site");
-			RequestsClient.DefaultRequestHeaders.Add("sec-fetch-mode", "cors");
-			RequestsClient.DefaultRequestHeaders.Add("sec-fetch-dest", "empty");
+			RequestsClient.Timeout = TimeSpan.FromMinutes(DEFAULT_REQUEST_TIMEOUT_IN_MINUTES);
+
+			foreach (var (name, value) in DefaultHeadersMap)
+			{
+				RequestsClient.DefaultRequestHeaders.Add(name, value);
+			}
 		}
 	}
 }
