@@ -1,5 +1,6 @@
-using System.Net;
+using System;
 using System.Net.Http;
+using System.Threading.Tasks;
 using PyszneAPILib.RequestsManagementSystem;
 using PyszneAPILib.RestaurantDataSystem;
 
@@ -16,19 +17,19 @@ namespace PyszneAPILib
 			RequestsManager = requestsManager;
 		}
 
-		public bool TryGetRestaurantData (string restaurantID, out string? restaurantData)
+		public async Task TryGetRestaurantData (string restaurantID, Action<string> onSuccess, Action<HttpRequestFailData> onFail)
 		{
 			using HttpRequestMessage dataRequest = RestaurantDataManager.CreateRequest(restaurantID);
-			using HttpResponseMessage dataResponse = RequestsManager.SendRequest(dataRequest).Result;
+			using HttpResponseMessage dataResponse = await RequestsManager.SendRequest(dataRequest);
 
-			bool isReturnedCodePositive = CheckIfRequestReturnPositiveCode(dataResponse.StatusCode);
-			restaurantData = isReturnedCodePositive ? RequestsManager.ReadResponse(dataResponse) : null;
-			return isReturnedCodePositive;
-		}
-
-		private bool CheckIfRequestReturnPositiveCode (HttpStatusCode returnedCode)
-		{
-			return returnedCode == HttpStatusCode.OK;
+			if (dataResponse.IsSuccessStatusCode == true)
+			{
+				onSuccess.Invoke(await RequestsManager.ReadResponse(dataResponse));
+			}
+			else
+			{
+				onFail.Invoke(new HttpRequestFailData(dataResponse.StatusCode, dataResponse.ReasonPhrase));
+			}
 		}
 	}
 }

@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using NUnit.Framework;
 using PyszneAPILib;
 using PyszneAPILib.RequestsManagementSystem;
@@ -16,9 +17,19 @@ namespace PyszneAPILibServer
 		}
 		
 		[Test]
-		public void SendRestaurantDataRequest_ReturnedCodeIsSuccess_True ()
+		public async Task SendRestaurantDataRequest_ReturnedCodeIsSuccess_True ()
 		{
-			Assert.IsTrue(APIInstance.TryGetRestaurantData("diamond-kebab-bielsko-biala-sempolowskiej", out _));
+			await APIInstance.TryGetRestaurantData("diamond-kebab-bielsko-biala-sempolowskiej", ReactOnSuccess, ReactOnFail);
+
+			void ReactOnSuccess (string _)
+			{
+				Assert.Pass();
+			}
+
+			void ReactOnFail (HttpRequestFailData failReason)
+			{
+				Assert.Fail($"{failReason.Code} - {failReason.ReasonMessage}");
+			}
 		}
 		
 		[Test]

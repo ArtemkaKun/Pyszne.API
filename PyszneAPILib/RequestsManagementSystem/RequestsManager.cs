@@ -1,5 +1,4 @@
 using System;
-using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -19,11 +18,10 @@ namespace PyszneAPILib.RequestsManagementSystem
 			return await RequestsClient.SendAsync(requestToSend);
 		}
 
-		public string? ReadResponse (HttpResponseMessage responseToRead)
+		public async Task<string> ReadResponse (HttpResponseMessage responseToRead)
 		{
-			using Stream responseStream = responseToRead.Content.ReadAsStream();
-			using StreamReader responseStreamReader = new(responseStream);
-			return responseStreamReader.ReadToEnd();
+			return await responseToRead.Content.ReadAsStringAsync();
+		}
 		}
 
 		private void InitializeRequestsClient ()
