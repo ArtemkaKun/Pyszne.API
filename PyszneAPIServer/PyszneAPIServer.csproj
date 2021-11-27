@@ -9,4 +9,9 @@
         <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Pyszne-API-lib-tests\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="Pyszne-API-lib-tests\obj\Pyszne-API-lib-tests.csproj.nuget.dgspec.json" />
+    </ItemGroup>
+
 </Project>

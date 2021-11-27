@@ -1,10 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pyszne-API-server", "Pyszne-API-server.csproj", "{EF13E00D-F0C9-4CD9-BCFD-D448FDDD95CE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PyszneAPILib", "..\PyszneAPILib\PyszneAPILib.csproj", "{5F1E5C89-D4EE-4A80-89C6-C8AC61BA2495}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PyszneAPILibTests", "..\PyszneAPILibTests\PyszneAPILibTests.csproj", "{DF8E7F41-BDC6-46C4-ADDA-B13724BA31EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PyszneAPIServer", "PyszneAPIServer.csproj", "{87E7B908-A1CB-495D-9CF4-CB6992956DAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,10 +12,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EF13E00D-F0C9-4CD9-BCFD-D448FDDD95CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EF13E00D-F0C9-4CD9-BCFD-D448FDDD95CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EF13E00D-F0C9-4CD9-BCFD-D448FDDD95CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EF13E00D-F0C9-4CD9-BCFD-D448FDDD95CE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5F1E5C89-D4EE-4A80-89C6-C8AC61BA2495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5F1E5C89-D4EE-4A80-89C6-C8AC61BA2495}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F1E5C89-D4EE-4A80-89C6-C8AC61BA2495}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -24,5 +20,9 @@ Global
 		{DF8E7F41-BDC6-46C4-ADDA-B13724BA31EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF8E7F41-BDC6-46C4-ADDA-B13724BA31EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF8E7F41-BDC6-46C4-ADDA-B13724BA31EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87E7B908-A1CB-495D-9CF4-CB6992956DAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87E7B908-A1CB-495D-9CF4-CB6992956DAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87E7B908-A1CB-495D-9CF4-CB6992956DAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87E7B908-A1CB-495D-9CF4-CB6992956DAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
