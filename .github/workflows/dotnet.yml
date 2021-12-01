@@ -18,8 +18,8 @@ jobs:
       with:
         dotnet-version: 6.x
     - name: Restore dependencies
-      run: dotnet restore Pyszne-API-server/
+      run: dotnet restore Pyszne-API-server/Pyszne-API.sln
     - name: Build lib
-      run: dotnet build Pyszne-API-server/ --no-restore
+      run: dotnet build Pyszne-API-server/Pyszne-API.sln --no-restore
     - name: Test lib
-      run: dotnet test Pyszne-API-server/ --no-build --verbosity normal
+      run: dotnet test Pyszne-API-server/Pyszne-API.sln --no-build --verbosity normal
